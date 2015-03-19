@@ -19,5 +19,6 @@ int main()
     a.postToNfa("ab|")->print();
 
 
+
     return 0;
 }

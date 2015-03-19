@@ -9,13 +9,13 @@ class State
 {
 public:
     int kind ;
-    char edge1;
-    char edge2;
+    int edge1;
+    int edge2;
     State * out1;
     State * out2;
 
     State();
-    State ( int _kind,char _edge1 , char _edge2 , State * first , State* second );
+    State ( int _kind,int _edge1 , int _edge2 , State * first , State* second );
     void print();
 
 };

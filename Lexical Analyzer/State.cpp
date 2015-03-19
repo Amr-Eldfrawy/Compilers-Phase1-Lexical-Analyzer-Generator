@@ -12,7 +12,7 @@ State::State()
     State::edge2=EPSILON;
 
 }
-State::State( int _kind,char _edge1 , char _edge2 , State * first , State* second )
+State::State( int _kind,int _edge1 , int _edge2 , State * first , State* second )
 {
     State::kind = _kind;
 
@@ -27,12 +27,12 @@ State::State( int _kind,char _edge1 , char _edge2 , State * first , State* secon
 
 void State::print()
 {
-    if(State::kind==GOAL)
+    if(kind==GOAL || (out1==NULL && out2==NULL) )
         return;
 
-    cout << State::kind <<endl;
-    cout << "edge1" << State::edge1 << "edge2" << State::edge2 <<endl;
+    cout << kind <<endl;
+    cout << "edge1  " <<edge1 << "  edge2  " << edge2 <<endl;
 
-    State::out1->print();
-    State::out2->print();
+    out1->print();
+    out2->print();
 }
