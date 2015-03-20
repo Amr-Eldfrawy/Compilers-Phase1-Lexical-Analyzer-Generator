@@ -4,35 +4,42 @@
 #include <iostream>
 
 using namespace std;
+bool vis[500];
 State::State()
 {
-    State::out1=NULL;
-    State::out2=NULL;
-    State::edge1=EPSILON;
-    State::edge2=EPSILON;
+   out1=NULL;
+   out2=NULL;
+    edge1=EPSILON;
+    edge2=EPSILON;
+
 
 }
 State::State( int _kind,int _edge1 , int _edge2 , State * first , State* second )
 {
-    State::kind = _kind;
+    kind = _kind;
 
-    State::edge1 =_edge1;
-    State::edge2 =_edge2;
+    edge1 =_edge1;
+    edge2 =_edge2;
 
-    State::out1 = first;
-    State::out2 = second;
+    out1 = first;
+    out2 = second;
 
 
 }
 
-void State::print()
+void State::print(int depth)
 {
-    if(kind==GOAL || (out1==NULL && out2==NULL) )
+    if(kind==GOAL || depth == 10 ){
+        cout << "Goal  \n";
         return;
+    }
 
-    cout << kind <<endl;
+
+
+    cout << "kind " << kind <<endl;
     cout << "edge1  " <<edge1 << "  edge2  " << edge2 <<endl;
-
-    out1->print();
-    out2->print();
+    if(out1!=NULL)
+        out1->print(depth+1);
+    if(out2!=NULL)
+        out2->print(depth+1);
 }

@@ -16,7 +16,7 @@ public:
 
     State();
     State ( int _kind,int _edge1 , int _edge2 , State * first , State* second );
-    void print();
+    void print(int depth);
 
 };
 

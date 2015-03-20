@@ -16,7 +16,9 @@ int main()
 {
     //Nfa* s = new Nfa();
     Nfa a;
-    a.postToNfa("ab|")->print();
+
+    State * y = a.postToNfa("ab|");
+    y->print();
 
 
 

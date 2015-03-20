@@ -5,6 +5,7 @@
 #include<string>
 #include<stack>
 #include<vector>
+
 #define DEFAULT 0
 #define EPSILON 256
 #define SPLIT 1
@@ -61,17 +62,17 @@ State* Nfa::postToNfa(string postfix)
             fragStack.pop();
 
             State * s  = new State(SPLIT,EPSILON,EPSILON, e1.start, e2.start);
-            State * end = new State(GOAL,EPSILON,EPSILON,NULL,NULL);
+            State * End = new State(GOAL,EPSILON,EPSILON,NULL,NULL);
 
             e1.end->kind=DEFAULT;
             e2.end->kind=DEFAULT;
 
-            e1.end->out1=end;
-            e2.end->out1=end;
+            e1.end->out1=End;
+            e2.end->out1=End;
 
 
 
-            fragStack.push(Frag(s,end));
+            fragStack.push(Frag(s,End));
         }
         else if ( cur  == '*')
         {
@@ -107,6 +108,7 @@ State* Nfa::postToNfa(string postfix)
 
 
     e = fragStack.top();
+    cout << e.start->kind << " " << e.end->kind <<endl;
     fragStack.pop();
 
     return (e.start);
