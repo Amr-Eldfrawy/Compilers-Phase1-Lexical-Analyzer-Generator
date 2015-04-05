@@ -4,19 +4,23 @@
 
 using namespace std;
 
-
-class State
-{
+class State {
 public:
-    int kind ;
-    int edge1;
-    int edge2;
-    State * out1;
-    State * out2;
 
-    State();
-    State ( int _kind,int _edge1 , int _edge2 , State * first , State* second );
-    void print(int depth);
+	int kind;
+	int edge1;
+	int edge2;
+	State * out1;
+	State * out2;
+
+	int id;
+
+	int priority;
+	string token_name;
+
+	State();
+	State(int _kind, int _edge1, int _edge2, State * first, State* second);
+	void print(int depth);
 
 };
 

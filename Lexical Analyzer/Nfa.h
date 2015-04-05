@@ -7,14 +7,17 @@
 
 using namespace std;
 
-class Nfa
-{
-public:
-    vector <State*> root;
-    Nfa();
+static int curId = 0;
 
-    State* postToNfa(string postfix);
-    vector <State*> getNfaRoot(vector <string> allPosifix);
+class Nfa {
+public:
+
+	vector<State*> root;
+	Nfa();
+
+	static int GenerateID();
+	State* postToNfa(int rank, string regexName, string postfix);
+	void getNfaRoot();
 
 };
 
